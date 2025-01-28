@@ -21,4 +21,3 @@ To get started with the project, clone the repository:
 
 ```bash
 git clone https://github.com/wsxrfv9090/Machine-Learning-Project-related.git
-123456789
