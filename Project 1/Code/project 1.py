@@ -68,6 +68,8 @@ X_test = OneHotEncoding(X_test, enc_ohe, categories)
 
 #print(X_train.head())
 
+
+#ordinal encoder
 from sklearn.preprocessing import OrdinalEncoder
 
 categories = ['Gender']
@@ -79,6 +81,33 @@ X_test[categories] = enc_oe.transform(X_test[categories])
 
 #print(X_train.head())
 
+#Scaling
+# Scale the data, using standardization
+# standardization (x-mean)/std
+# normalization (x-x_min)/(x_max-x_min) ->[0,1]
+
+# 1. speed up gradient descent
+# 2. same scale
+# 3. algorithm requirments
+
+# for example, use training data to train the standardscaler to get mean and std
+# apply mean and std to both training and testing data.
+# fit_transform does the training and applying, transform only does applying.
+# Because we can't use any info from test, and we need to do the same modification
+# to testing data as well as training data
+
+# https://scikit-learn.org/stable/auto_examples/preprocessing/plot_all_scaling.html#sphx-glr-auto-examples-preprocessing-plot-all-scaling-py
+# https://scikit-learn.org/stable/modules/preprocessing.html
+
+# min-max example: (x-x_min)/(x_max-x_min)
+# [1,2,3,4,5,6,100] -> fit(min:1, max:6) (scalar.min = 1, scalar.max = 6) -> transform [(1-1)/(6-1),(2-1)/(6-1)..]
+# scalar.fit(train) -> min:1, max:100
+# scalar.transform(apply to x) -> apply min:1, max:100 to X_train
+# scalar.transform -> apply min:1, max:100 to X_test
+
+# scalar.fit -> mean:1, std:100
+# scalar.transform -> apply mean:1, std:100 to X_train
+# scalar.transform -> apply mean:1, std:100 to X_test
 from sklearn.preprocessing import StandardScaler
 scaler = StandardScaler()
 scaler.fit(X_train[num_cols])
@@ -88,3 +117,57 @@ X_test[num_cols] = scaler.transform(X_test[num_cols])
 
 #print(X_train.head())
 
+#@title build models
+from sklearn.linear_model import LogisticRegression
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.ensemble import RandomForestClassifier
+
+# Logistic Regression
+classifier_logistic = LogisticRegression()
+
+# K Nearest Neighbors
+classifier_KNN = KNeighborsClassifier()
+
+# Random Forest
+classifier_RF = RandomForestClassifier()
+
+# Train the model
+classifier_logistic.fit(X_train, y_train)
+
+# Prediction of test data
+classifier_logistic.predict(X_test)
+
+# Accuracy of test data
+print(classifier_logistic.score(X_test, y_test))
+
+#Finding the optimal parameters:
+#Loss/cost function --> (wx + b - y) ^2 + ƛ * |w| --> ƛ is a hyperparameter
+from sklearn.model_selection import GridSearchCV
+
+# helper function for printing out grid search results
+def print_grid_search_metrics(gs):
+    print ("Best score: " + str(gs.best_score_))
+    print ("Best parameters set:")
+    best_parameters = gs.best_params_
+    for param_name in sorted(best_parameters.keys()):
+        print(param_name + ':' + str(best_parameters[param_name]))
+        
+
+# Possible hyperparamter options for Logistic Regression Regularization
+# Penalty is choosed from L1 or L2
+# C is the 1/lambda value(weight) for L1 and L2
+# solver: algorithm to find the weights that minimize the cost function
+
+# ('l1', 0.01)('l1', 0.05) ('l1', 0.1) ('l1', 0.2)('l1', 1)
+# ('12', 0.01)('l2', 0.05) ('l2', 0.1) ('l2', 0.2)('l2', 1)
+parameters = {
+    'penalty':('l2','l1'),
+    'C':(0.01, 0.05, 0.1, 0.2, 1)
+}
+
+Grid_LR = GridSearchCV(LogisticRegression(solver='liblinear'),parameters, cv = 5)
+Grid_LR.fit(X_train, y_train)
+
+# the best hyperparameter combination
+# C = 1/lambda
+print_grid_search_metrics(Grid_LR)
