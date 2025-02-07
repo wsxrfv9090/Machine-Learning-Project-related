@@ -4,9 +4,6 @@ This repository serves as a working space for me (Davy) and my friend Shiloh. We
 
 ## Table of Contents
 - [Project Overview](#project-overview)
-- [Setup Instructions](#setup-instructions)
-- [Usage](#usage)
-- [Contributors](#contributors)
 
 ## Project Overview
 This repository includes:
@@ -14,3 +11,5 @@ This repository includes:
 - Jupyter notebooks for numpy, pandas and matplotlib.
 - Datasets used for training and testing
 - Documentation and notes on the steps and methodology
+
+
