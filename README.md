@@ -8,7 +8,8 @@ This repository serves as a working space for me (Davy) and my friend Shiloh. We
 ## Project Overview
 This repository includes:
 - Python scripts for data preprocessing
-- Jupyter notebooks for numpy, pandas and matplotlib.
+- Machine learning related practice projects
+- Reference for financial context
 - Datasets used for training and testing
 - Documentation and notes on the steps and methodology
 
