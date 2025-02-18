@@ -74,7 +74,7 @@ If no errors are raised, you're good to go!
 If you'd like to use Jupyter Notebooks for this project, you can install Jupyter by running:
 
 ```bash
-pip install jupyter
+pip install jupyterlab
 ```
 
 Then, start a Jupyter notebook by running:
