@@ -4,7 +4,7 @@ This repository serves as a working space for me (Davy) and my friend Shiloh. We
 
 ## Table of Contents
 - [Project Overview](#project-overview)
-- [Recommended Environment setup](#Recommended Environment setup)
+- [Recommended Environment setup](#Environment-Setup)
 
 ## Project Overview
 This repository includes:
