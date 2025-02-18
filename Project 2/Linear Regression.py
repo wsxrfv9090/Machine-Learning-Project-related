@@ -1,3 +1,4 @@
+# This file is not fully finished, but it contained some of the thoughts I was thinking while doing this, so I kept it in the repo.
 import pandas as pd
 import math, datetime
 import numpy as np

@@ -1,10 +1,10 @@
 import pandas as pd
 
 # Original file path
-input_file_path = r'D:\ImportanFiles\Coding Related\Repositories\Machine Learning project related\Project 2\Data\002796_metadata_gbk.csv'
+input_file_path = r'D:\ImportanFiles\Coding Related\Repositories\Machine Learning project related\Project 2\Data\600873_metadata_gbk.csv'
 
 # Output file path with UTF-8 encoding
-output_file_path = r'D:\ImportanFiles\Coding Related\Repositories\Machine Learning project related\Project 2\Data\002796_metadata_utf8.csv'
+output_file_path = r'D:\ImportanFiles\Coding Related\Repositories\Machine Learning project related\Project 2\Data\600873_metadata_utf8.csv'
 
 # Read the original file with its current encoding (assuming GBK encoding here)
 df = pd.read_csv(input_file_path, encoding='GBK')
