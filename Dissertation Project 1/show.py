@@ -5,7 +5,7 @@ import os
 import datetime
 
 # Read data from CSV file with 'Stock ID' as a string
-file_path = 'D:\Important Files\Repositories\Machine-Learning-Project-related\Dissertation Project 1\Output\Output CSV\output_history.csv'  # Replace with your actual file path
+file_path = 'D:\ImportanFiles\Coding Related\Repositories\Machine Learning project related\Dissertation Project 1\Output\Output CSV\output_history.csv'  # Replace with your actual file path
 df = pd.read_csv(file_path, dtype={'Stock ID': str})
 
 # Keep only the relevant columns
