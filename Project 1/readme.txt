@@ -1,0 +1,1 @@
+This is a project concerning Bank Customer Churn prediction. For Shiloh's course.

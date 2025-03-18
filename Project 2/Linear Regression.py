@@ -64,4 +64,3 @@ forecast_set = clf.predict(X_lately)
 print("Forecast result: " + str(forecast_set) + " with accuracy of " + str(accuracy) + " and forecast out of " + str(forecast_out) + " days.")
 
 stock_df['Forecast'] = np.nan
-

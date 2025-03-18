@@ -27,8 +27,8 @@ for _, row in df.iterrows():
 plt.xlabel('Market Excess Returns (E(R_m) - R_f)')
 plt.ylabel('Stock Excess Returns (E(R_i) - R_f)')
 plt.title("Stock Lines Based on Alpha and Beta")
-plt.xlim(0, 0.01)
-plt.ylim(-0.001, 0.015)
+plt.xlim(0, 0.02)
+plt.ylim(-0.001, 0.030)
 plt.legend()
 plt.grid(True)
 
